@@ -118,7 +118,7 @@ struct Node
 // This function should return head to the DLL
 class Solution {
   public:
-  Node* head;
+    Node* head;
     Node* help(Node *&pre,Node* root){
         if(!root)return NULL;
         help(pre,root->left);
