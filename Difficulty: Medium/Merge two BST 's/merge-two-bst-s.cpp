@@ -29,7 +29,7 @@ Node* buildTree(string str) {
     for (string str; iss >> str;)
         ip.push_back(str);
 
-    // Create the root of the tree
+    // Create the root of the tree.....
     Node* root = new Node(stoi(ip[0]));
 
     // Push the root to the queue
@@ -92,35 +92,34 @@ struct Node {
     }
 };
 */
-class Solution
-{
-    public:
-    //Function to return a list of integers denoting the node 
-    //values of both the BST in a sorted order.
+class Solution {
+  public:
+    // Function to return a list of integers denoting the node
+    // values of both the BST in a sorted order.
     void inor(Node *root,vector<int>&ans){
-        if(!root)return;
+        if(!root)
+        return;
         inor(root->left,ans);
         ans.push_back(root->data);
         inor(root->right,ans);
     }
-    vector<int> merge(Node *root1, Node *root2)
-    {
-       //Your code here
-       vector<int>a,b;
-       inor(root1,a);
-       inor(root2,b);
-       vector<int>ans;
-       int i=0;
-       int j=0;
-       while(i<a.size() && j<b.size()){
-           if(a[i]<=b[j]){
-               ans.push_back(a[i++]);
-           }
-           else ans.push_back(b[j++]);
-       }
-       while(i<a.size())ans.push_back(a[i++]);
-       while(j<b.size())ans.push_back(b[j++]);
-    sort(ans.begin(),ans.end());
+    vector<int> merge(Node *root1, Node *root2) {
+        // Your code here
+        vector<int>a,b;
+        inor(root1,a);
+        inor(root2,b);
+        vector<int>ans;
+        int i=0;
+        int j=0;
+        while(i<a.size() && j<b.size()){
+            if(a[i]<=b[j]){
+                ans.push_back(a[i++]);
+            }
+            else ans.push_back(b[j++]);
+        }
+        while(i<a.size())ans.push_back(a[i++]);
+        while(j<b.size())ans.push_back(b[j++]);
+    //sort(ans.begin(),ans.end());
     return ans;
     }
 };
